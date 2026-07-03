@@ -82,6 +82,18 @@ import kubernetes from '../app/assets/svg/skills/kubernetes.svg'
 import linux from '../app/assets/svg/skills/linux.svg'
 import sqlalchemy from '../app/assets/svg/skills/sqlalchemy.svg'
 import fastapi from '../app/assets/svg/skills/fastapi.svg'
+import jenkins from '../app/assets/svg/skills/jenkins.svg'
+import grafana from '../app/assets/svg/skills/grafana.svg'
+import graphite from '../app/assets/svg/skills/graphite.svg'
+import nagios from '../app/assets/svg/skills/nagios.svg'
+import springboot from '../app/assets/svg/skills/springboot.svg'
+import dsa from '../app/assets/svg/skills/dsa.svg'
+import nodejs from '../app/assets/svg/skills/nodejs.svg'
+import express from '../app/assets/svg/skills/express.svg'
+import vscode from '../app/assets/svg/skills/vscode.svg'
+import intellij from '../app/assets/svg/skills/intellij.svg'
+import windows from '../app/assets/svg/skills/windows.svg'
+
 
 
 
@@ -133,6 +145,7 @@ export const skillsImage = (skill) => {
     case 'mongodb':
       return mongoDB;
     case 'mysql':
+    case 'sql':
       return mysql;
     case 'postgresql':
       return postgresql;
@@ -254,6 +267,33 @@ export const skillsImage = (skill) => {
       return sqlalchemy;
     case 'fastapi':
       return fastapi;
+    case 'jenkins':
+      return jenkins;
+    case 'grafana':
+      return grafana;
+    case 'graphite':
+      return graphite;
+    case 'nagios':
+      return nagios;
+    case 'spring boot':
+      return springboot;
+    case 'data structures & algorithms':
+    case 'dsa':
+      return dsa;
+    case 'node js':
+    case 'nodejs':
+      return nodejs;
+    case 'express':
+    case 'express js':
+    case 'expressjs':
+      return express;
+    case 'vscode':
+    case 'vs code':
+      return vscode;
+    case 'intellij':
+      return intellij;
+    case 'windows':
+      return windows;
     default:
       break;
   }

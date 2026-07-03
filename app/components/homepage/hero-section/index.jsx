@@ -8,6 +8,8 @@ import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
+import Marquee from "react-fast-marquee";
+import GlowCard from "../../helper/glow-card";
 
 function HeroSection() {
   return (
@@ -23,56 +25,41 @@ function HeroSection() {
 
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
         <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
-          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
-            Hello, <br />
-            This is {' '}
-            <span className=" text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional `}
-            <span className=" text-[#16f2b3]">{personalData.designation}</span>
-            .
+          <h1 className="text-4xl font-light leading-10 text-white md:font-light lg:text-[3.2rem] lg:leading-[4rem] font-sans">
+            Hello, This is <br />
+            <span className="font-serif italic font-normal text-[#b4fe15] tracking-wide relative after:content-[''] after:absolute after:bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-[#b4fe15] after:opacity-20">{personalData.name}</span>
+            <span className="text-gray-400 block text-lg font-mono mt-4 tracking-widest uppercase">
+              {personalData.designation}
+            </span>
           </h1>
 
-          <div className="my-12 flex items-center gap-5">
+          <div className="my-8 flex items-center gap-4">
             <Link
               href={personalData.github}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
-              <BsGithub size={30} />
+              <BsGithub size={26} />
             </Link>
             <Link
               href={personalData.linkedIn}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
-              <BsLinkedin size={30} />
-            </Link>
-            <Link
-              href={personalData.facebook}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <FaFacebook size={30} />
+              <BsLinkedin size={26} />
             </Link>
             <Link
               href={personalData.leetcode}
               target='_blank'
               className="transition-all text-pink-500 hover:scale-125 duration-300"
             >
-              <SiLeetcode size={30} />
-            </Link>
-            <Link
-              href={personalData.twitter}
-              target='_blank'
-              className="transition-all text-pink-500 hover:scale-125 duration-300"
-            >
-              <FaTwitterSquare size={30} />
+              <SiLeetcode size={26} />
             </Link>
           </div>
 
           <div className="flex items-center gap-3">
             <Link href="#contact" className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0d1224] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
+              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#080808] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
                 <span>Contact me</span>
                 <RiContactsFill size={16} />
               </button>
@@ -85,101 +72,148 @@ function HeroSection() {
             </Link>
           </div>
 
-        </div>
-        <div className="order-1 lg:order-2 from-[#0d1224] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37]">
-          <div className="flex flex-row">
-            <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
-            <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
-          </div>
-          <div className="px-4 lg:px-8 py-5">
-            <div className="flex flex-row space-x-2">
-              <div className="h-3 w-3 rounded-full bg-red-400"></div>
-              <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-              <div className="h-3 w-3 rounded-full bg-green-200"></div>
+          {/* Metric / Stat Cards */}
+          <div className="grid grid-cols-2 gap-4 mt-12 w-full">
+            {/* CGPA */}
+            <div className="p-4 rounded-lg border border-[#27272a] bg-[#0c0d0e] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
+              <div className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">CGPA</div>
+              <div className="text-2xl font-bold mt-2 font-mono text-gray-100">8.38 <span className="text-xs text-gray-500">/ 10</span></div>
+              <div className="absolute right-4 bottom-4 w-6 h-6 border border-[#b4fe15] rounded-full border-t-transparent animate-spin" style={{ animationDuration: '3s' }}></div>
+            </div>
+            {/* Year */}
+            <div className="p-4 rounded-lg border border-[#27272a] bg-[#0c0d0e] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
+              <div className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">YEAR</div>
+              <div className="text-2xl font-bold mt-2 font-mono text-gray-100">3rd <span className="text-xs text-gray-500">OF 4</span></div>
+              <div className="absolute right-4 bottom-4 flex gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#b4fe15]"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#b4fe15]"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#b4fe15]"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-600"></span>
+              </div>
+            </div>
+            {/* Projects */}
+            <div className="p-4 rounded-lg border border-[#27272a] bg-[#0c0d0e] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
+              <div className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">PROJECTS</div>
+              <div className="text-2xl font-bold mt-2 font-mono text-gray-100">03 <span className="text-xs text-gray-500">SHIPPED</span></div>
+              <div className="absolute right-4 bottom-4 grid grid-cols-2 gap-1 w-5 h-5">
+                <span className="w-2 h-2 bg-[#b4fe15] rounded-sm"></span>
+                <span className="w-2 h-2 bg-[#b4fe15] rounded-sm"></span>
+                <span className="w-2 h-2 bg-[#b4fe15] rounded-sm"></span>
+                <span className="w-2 h-2 border border-gray-600 rounded-sm"></span>
+              </div>
+            </div>
+            {/* LeetCode */}
+            <div className="p-4 rounded-lg border border-[#27272a] bg-[#0c0d0e] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
+              <div className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">LEETCODE</div>
+              <div className="text-2xl font-bold mt-2 font-mono text-gray-100">250+ <span className="text-xs text-gray-500">SOLVED</span></div>
+              <div className="absolute right-4 bottom-4 w-6 h-6 border border-dashed border-[#b4fe15]/50 rounded-full flex items-center justify-center text-[10px] text-[#b4fe15] font-mono">★</div>
             </div>
           </div>
-          <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
-            <code className="font-mono text-xs md:text-sm lg:text-base">
-              <div className="blink">
-                <span className="mr-2 text-pink-500">const</span>
-                <span className="mr-2 text-white">coder</span>
-                <span className="mr-2 text-pink-500">=</span>
-                <span className="text-gray-400">{'{'}</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
-                <span className="text-gray-400">{`'`}</span>
-                <span className="text-amber-300">Abu Said</span>
-                <span className="text-gray-400">{`',`}</span>
-              </div>
-              <div className="ml-4 lg:ml-8 mr-2">
-                <span className=" text-white">skills:</span>
-                <span className="text-gray-400">{`['`}</span>
-                <span className="text-amber-300">React</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">NextJS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Redux</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Express</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">NestJS</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">MySql</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">MongoDB</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">Docker</span>
-                <span className="text-gray-400">{"', '"}</span>
-                <span className="text-amber-300">AWS</span>
-                <span className="text-gray-400">{"'],"}</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">hardWorker:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">quickLearner:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-white">problemSolver:</span>
-                <span className="text-orange-400">true</span>
-                <span className="text-gray-400">,</span>
-              </div>
-              <div>
-                <span className="ml-4 lg:ml-8 mr-2 text-green-400">hireable:</span>
-                <span className="text-orange-400">function</span>
-                <span className="text-gray-400">{'() {'}</span>
-              </div>
-              <div>
-                <span className="ml-8 lg:ml-16 mr-2 text-orange-400">return</span>
-                <span className="text-gray-400">{`(`}</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">hardWorker</span>
-                <span className="text-amber-300">&amp;&amp;</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">problemSolver</span>
-                <span className="text-amber-300">&amp;&amp;</span>
-              </div>
-              <div>
-                <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                <span className="mr-2 text-white">skills.length</span>
-                <span className="mr-2 text-amber-300">&gt;=</span>
-                <span className="text-orange-400">5</span>
-              </div>
-              <div><span className="ml-8 lg:ml-16 mr-2 text-gray-400">{`);`}</span></div>
-              <div><span className="ml-4 lg:ml-8 text-gray-400">{`};`}</span></div>
-              <div><span className="text-gray-400">{`};`}</span></div>
-            </code>
-          </div>
         </div>
+        <div className="order-1 lg:order-2 w-full">
+          <GlowCard identifier="hero-coder">
+            <div className="px-4 lg:px-8 py-5">
+              <div className="flex flex-row space-x-2 mb-4">
+                <div className="h-3 w-3 rounded-full bg-red-400"></div>
+                <div className="h-3 w-3 rounded-full bg-orange-400"></div>
+                <div className="h-3 w-3 rounded-full bg-green-200"></div>
+              </div>
+              <div className="overflow-hidden border-t border-gray-800 pt-4">
+                <code className="font-mono text-xs md:text-sm lg:text-base">
+                  <div className="blink">
+                    <span className="mr-2 text-pink-500">const</span>
+                    <span className="mr-2 text-white">coder</span>
+                    <span className="mr-2 text-pink-500">=</span>
+                    <span className="text-gray-400">{'{'}</span>
+                  </div>
+                  <div>
+                    <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
+                    <span className="text-gray-400">{`'`}</span>
+                    <span className="text-amber-300">Ishaan Negi</span>
+                    <span className="text-gray-400">{`',`}</span>
+                  </div>
+                  <div className="ml-4 lg:ml-8 mr-2">
+                    <span className=" text-white">skills:</span>
+                    <span className="text-gray-400">{`['`}</span>
+                    <span className="text-amber-300">Java</span>
+                    <span className="text-gray-400">{"', '"}</span>
+                    <span className="text-amber-300">Spring Boot</span>
+                    <span className="text-gray-400">{"', '"}</span>
+                    <span className="text-amber-300">Docker</span>
+                    <span className="text-gray-400">{"', '"}</span>
+                    <span className="text-amber-300">Kubernetes</span>
+                    <span className="text-gray-400">{"', '"}</span>
+                    <span className="text-amber-300">Jenkins</span>
+                    <span className="text-gray-400">{"', '"}</span>
+                    <span className="text-amber-300">Graphite</span>
+                    <span className="text-gray-400">{"', '"}</span>
+                    <span className="text-amber-300">Grafana</span>
+                    <span className="text-gray-400">{"', '"}</span>
+                    <span className="text-amber-300">Nagios</span>
+                    <span className="text-gray-400">{"'],"}</span>
+                  </div>
+                  <div>
+                    <span className="ml-4 lg:ml-8 mr-2 text-white">hardWorker:</span>
+                    <span className="text-orange-400">true</span>
+                    <span className="text-gray-400">,</span>
+                  </div>
+                  <div>
+                    <span className="ml-4 lg:ml-8 mr-2 text-white">quickLearner:</span>
+                    <span className="text-orange-400">true</span>
+                    <span className="text-gray-400">,</span>
+                  </div>
+                  <div>
+                    <span className="ml-4 lg:ml-8 mr-2 text-white">problemSolver:</span>
+                    <span className="text-orange-400">true</span>
+                    <span className="text-gray-400">,</span>
+                  </div>
+                  <div>
+                    <span className="ml-4 lg:ml-8 mr-2 text-green-400">hireable:</span>
+                    <span className="text-orange-400">function</span>
+                    <span className="text-gray-400">{'() {'}</span>
+                  </div>
+                  <div>
+                    <span className="ml-8 lg:ml-16 mr-2 text-orange-400">return</span>
+                    <span className="text-gray-400">{`(`}</span>
+                  </div>
+                  <div>
+                    <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
+                    <span className="mr-2 text-white">hardWorker</span>
+                    <span className="text-amber-300">&amp;&amp;</span>
+                  </div>
+                  <div>
+                    <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
+                    <span className="mr-2 text-white">problemSolver</span>
+                    <span className="text-amber-300">&amp;&amp;</span>
+                  </div>
+                  <div>
+                    <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
+                    <span className="mr-2 text-white">skills.length</span>
+                    <span className="mr-2 text-amber-300">&gt;=</span>
+                    <span className="text-orange-400">5</span>
+                  </div>
+                  <div><span className="ml-8 lg:ml-16 mr-2 text-gray-400">{`);`}</span></div>
+                  <div><span className="ml-4 lg:ml-8 text-gray-400">{`};`}</span></div>
+                  <div><span className="text-gray-400">{`};`}</span></div>
+                </code>
+              </div>
+            </div>
+          </GlowCard>
+        </div>
+      </div>
+
+      {/* Large Scrolling Categories Marquee Banner */}
+      <div className="w-full bg-[#121214] py-4 border-y border-[#27272a] my-8 overflow-hidden">
+        <Marquee gradient={false} speed={50} play={true} direction="left">
+          <span className="text-[#b4fe15] font-serif italic text-2xl mx-8 font-bold">Data Structures &amp; Algorithms</span>
+          <span className="text-gray-600 text-2xl mx-4">✦</span>
+          <span className="text-gray-100 text-2xl mx-8 font-semibold">DevOps &amp; CI/CD Pipelines</span>
+          <span className="text-gray-600 text-2xl mx-4">✦</span>
+          <span className="text-[#b4fe15] font-serif italic text-2xl mx-8 font-bold">Cloud Deployment &amp; Infrastructure</span>
+          <span className="text-gray-600 text-2xl mx-4">✦</span>
+          <span className="text-gray-100 text-2xl mx-8 font-semibold">Full-stack Software Systems</span>
+          <span className="text-gray-600 text-2xl mx-4">✦</span>
+        </Marquee>
       </div>
     </section>
   );

@@ -1,5 +1,18 @@
 @use "tailwindcss";
 
+@theme {
+  --color-pink-500: #b4fe15;
+  --color-pink-600: #a3ff1a;
+  --color-violet-500: #10b981;
+  --color-violet-600: #121214;
+  --color-violet-100: rgba(180, 254, 21, 0.1);
+  --color-indigo-900: #121214;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --foreground-rgb: rgb(211, 216, 232);
 }
@@ -12,7 +25,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #0d1224;
+  background-color: #080808;
 }
 
 #sticky-card-1 {

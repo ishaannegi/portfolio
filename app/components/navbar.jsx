@@ -1,44 +1,108 @@
-// @flow strict
-import Link from "next/link";
+"use client";
 
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 function Navbar() {
+  const [time, setTime] = useState("");
+
+  useEffect(() => {
+    const updateClock = () => {
+      const options = {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      };
+      const formatter = new Intl.DateTimeFormat("en-US", options);
+      setTime(formatter.format(new Date()) + " IST");
+    };
+    updateClock();
+    const interval = setInterval(updateClock, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <nav className="bg-transparent">
       <div className="flex items-center justify-between py-5">
-        <div className="flex flex-shrink-0 items-center">
+        <div className="flex flex-shrink-0 items-center gap-4">
+          <div className="w-8 h-8 bg-[#b4fe15] text-[#080808] font-bold flex items-center justify-center rounded text-lg font-mono">
+            I.
+          </div>
           <Link
             href="/"
-            className=" text-[#16f2b3] text-3xl font-bold">
-            ABU SAID
+            className=" text-[#b4fe15] text-2xl font-bold font-mono tracking-wider">
+            ISHAAN NEGI
           </Link>
         </div>
 
-        <ul className="mt-4 flex h-screen max-h-0 w-full flex-col items-start text-sm opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-1 md:border-0 md:opacity-100" id="navbar-default">
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#about">
-              <div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">ABOUT</div>
-            </Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#experience"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">EXPERIENCE</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#skills"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">SKILLS</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#education"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">EDUCATION</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/blog"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">BLOGS</div></Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline" href="/#projects"><div className="text-sm text-white transition-colors duration-300 hover:text-pink-600">PROJECTS</div></Link>
-          </li>
-        </ul>
+        <div className="hidden lg:flex items-center gap-6 text-sm font-mono text-gray-400">
+          <ul className="flex flex-row space-x-1" id="navbar-default">
+            <li>
+              <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#about">
+                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
+                  <span className="text-[#b4fe15] mr-1">01</span> ABOUT
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#experience">
+                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
+                  <span className="text-[#b4fe15] mr-1">02</span> EXPERIENCE
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#skills">
+                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
+                  <span className="text-[#b4fe15] mr-1">03</span> SKILLS
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#education">
+                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
+                  <span className="text-[#b4fe15] mr-1">04</span> EDUCATION
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#projects">
+                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
+                  <span className="text-[#b4fe15] mr-1">05</span> PROJECTS
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/blog">
+                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
+                  <span className="text-[#b4fe15] mr-1">06</span> BLOGS
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#contact">
+                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
+                  <span className="text-[#b4fe15] mr-1">07</span> CONTACT
+                </div>
+              </Link>
+            </li>
+          </ul>
+          
+          {time && (
+            <div className="flex items-center gap-2 border-l border-gray-800 pl-6">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#b4fe15] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#b4fe15]"></span>
+              </span>
+              <span className="text-gray-300 font-mono text-xs">{time}</span>
+            </div>
+          )}
+        </div>
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
