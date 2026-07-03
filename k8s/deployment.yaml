@@ -1,22 +1,22 @@
-apiVersion:apps/v1
-kind:Deployment
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name:portfolio-deployment
+  name: portfolio-deployment
   labels:
-    app:portfolio
+    app: portfolio
 spec:
-  replicas:2
+  replicas: 2
   selector:
     matchLabels:
-      app:portfolio
+      app: portfolio
   template:
     metadata:
       labels:
-        app:portfolio
+        app: portfolio
     spec:
       containers:
-      - name:portfolio
-        image:ishaannegi/portfolio:latest
+      - name: portfolio
+        image: ishaannegi/portfolio:latest
         ports:
-        - containerPort:3000
-        imagePullPolicy:IfNotPresent
+        - containerPort: 3000
+        imagePullPolicy: Never
