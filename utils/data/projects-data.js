@@ -5,8 +5,8 @@ export const projectsData = [
         description: "Architected and deployed a full-stack AI-driven career-prep platform on Vercel with a Flask REST backend, dual-mode PostgreSQL/SQLite persistence layer, and per-user session-based authentication. Integrated Gemini and OpenAI Whisper APIs to power resume ATS-alignment scoring, live audio-transcribed mock interviews with AI feedback, and adaptive code-gap quizzes. Diagnosed and fixed a production multi-tenant data-isolation bug and SQLite/PostgreSQL portability issue, and hardened the app with signed session keys and JSON error handling.",
         tools: ['Flask', 'PostgreSQL', 'SQLite', 'Gemini API', 'Whisper API', 'Vercel', 'Python', 'React'],
         role: 'Full Stack & AI Engineer',
-        code: '',
-        demo: '',
+        code: 'https://github.com/ishaannegi/interview_pf',
+        demo: 'https://interview-pf-silk.vercel.app',
     },
     {
         id: 2,
@@ -14,7 +14,7 @@ export const projectsData = [
         description: "Designed a CPU process scheduler using epsilon-greedy Q-learning that selects the next process via a discretized state of relative remaining burst time and waiting time. Implemented 4 classical scheduling algorithms (FCFS, SJF, SRTF, Round Robin) as baselines alongside the RL agent, built on a shared metrics engine comparing average waiting and turnaround time. Exposed the scheduler and training loop via a Flask REST API driving an interactive web frontend for real-time visualization of decisions.",
         tools: ['Python', 'Flask', 'NumPy', 'Q-Learning', 'Algorithms', 'React'],
         role: 'Machine Learning & Backend Developer',
-        code: '',
+        code: 'https://github.com/ishaannegi/reinforcement_scheduler',
         demo: '',
     },
     {
@@ -28,7 +28,7 @@ export const projectsData = [
     },
     {
         id: 4,
-        name: 'Developer Portfolio (DevOps Assignment)',
+        name: 'Developer Portfolio',
         description: "Customized and deployed a personal developer portfolio built with Next.js and Tailwind CSS. Containerized the web application using Docker, configured continuous integration and delivery with a local Jenkins pipeline, and set up a deployment on a Kubernetes cluster. Monitored the deployment using Nagios, Graphite, and Grafana.",
         tools: ['Next JS', 'Tailwind', 'Docker', 'Kubernetes', 'Jenkins', 'Graphite', 'Grafana', 'Nagios'],
         role: 'DevOps Engineer / Frontend Developer',

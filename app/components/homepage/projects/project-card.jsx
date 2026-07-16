@@ -1,6 +1,6 @@
-// @flow strict
-
 import * as React from 'react';
+import { BsGithub } from 'react-icons/bs';
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 function ProjectCard({ project }) {
 
@@ -21,7 +21,7 @@ function ProjectCard({ project }) {
         </p>
       </div>
       <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
-        <code className="font-mono text-xs md:text-sm lg:text-base">
+        <code className="font-mono text-xs md:text-sm lg:text-base break-words">
           <div className="blink">
             <span className="mr-2 text-pink-500">const</span>
             <span className="mr-2 text-white">project</span>
@@ -43,8 +43,9 @@ function ProjectCard({ project }) {
                 <React.Fragment key={i}>
                   <span className="text-amber-300">{tag}</span>
                   {
-                    project.tools?.length - 1 !== i &&
-                    <span className="text-gray-400">{`', '`}</span>
+                    project.tools?.length - 1 !== i ?
+                    <span className="text-gray-400">{`', '`}</span> :
+                    <span className="text-gray-400">{`'`}</span>
                   }
                 </React.Fragment>
               ))
@@ -53,16 +54,45 @@ function ProjectCard({ project }) {
           </div>
           <div>
             <span className="ml-4 lg:ml-8 mr-2 text-white">myRole:</span>
-            <span className="text-orange-400">{project.role}</span>
-            <span className="text-gray-400">,</span>
+            <span className="text-gray-400">{`'`}</span>
+            <span className="text-amber-300">{project.role}</span>
+            <span className="text-gray-400">{`',`}</span>
           </div>
           <div className="ml-4 lg:ml-8 mr-2">
             <span className="text-white">Description:</span>
-            <span className="text-cyan-400">{' ' + project.description}</span>
-            <span className="text-gray-400">,</span>
+            <span className="text-gray-400">{` '`}</span>
+            <span className="text-cyan-400">{project.description}</span>
+            <span className="text-gray-400">{`',`}</span>
           </div>
           <div><span className="text-gray-400">{`};`}</span></div>
         </code>
+        
+        {(project.code || project.demo) && (
+          <div className="flex items-center gap-4 mt-4 pt-4 border-t border-indigo-900/40">
+            {project.code && (
+              <a
+                href={project.code}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-[#b4fe15] transition-all duration-300 font-mono"
+              >
+                <BsGithub size={16} />
+                <span>View Code</span>
+              </a>
+            )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-[#b4fe15] transition-all duration-300 font-mono"
+              >
+                <FaExternalLinkAlt size={12} />
+                <span>Live Demo</span>
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

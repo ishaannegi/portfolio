@@ -10,9 +10,27 @@ import "./css/globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
+  metadataBase: new URL("https://ishaanportfolio-i1p1vu38w-ishaannegi.vercel.app"),
   title: "Portfolio of Ishaan Negi - CS Student & DevOps Enthusiast",
   description:
     "This is the portfolio of Ishaan Negi. I am a Computer Science student specializing in IoT, passionate about Data Structures & Algorithms, cloud deployment, and DevOps automation.",
+  openGraph: {
+    title: "Portfolio of Ishaan Negi - CS Student & DevOps Enthusiast",
+    description:
+      "This is the portfolio of Ishaan Negi. I am a Computer Science student specializing in IoT, passionate about Data Structures & Algorithms, cloud deployment, and DevOps automation.",
+    url: "https://ishaanportfolio-i1p1vu38w-ishaannegi.vercel.app/",
+    siteName: "Ishaan Negi Portfolio",
+    images: [
+      {
+        url: "/card.png",
+        width: 1200,
+        height: 630,
+        alt: "Ishaan Negi Portfolio Card",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {

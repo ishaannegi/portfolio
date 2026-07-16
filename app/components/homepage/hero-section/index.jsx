@@ -83,23 +83,23 @@ function HeroSection() {
             {/* Year */}
             <div className="p-4 rounded-lg border border-[#27272a] bg-[#0c0d0e] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
               <div className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">YEAR</div>
-              <div className="text-2xl font-bold mt-2 font-mono text-gray-100">3rd <span className="text-xs text-gray-500">OF 4</span></div>
+              <div className="text-2xl font-bold mt-2 font-mono text-gray-100">4th <span className="text-xs text-gray-500">OF 4</span></div>
               <div className="absolute right-4 bottom-4 flex gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#b4fe15]"></span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#b4fe15]"></span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#b4fe15]"></span>
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-600"></span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#b4fe15]"></span>
               </div>
             </div>
             {/* Projects */}
             <div className="p-4 rounded-lg border border-[#27272a] bg-[#0c0d0e] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
               <div className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">PROJECTS</div>
-              <div className="text-2xl font-bold mt-2 font-mono text-gray-100">03 <span className="text-xs text-gray-500">SHIPPED</span></div>
+              <div className="text-2xl font-bold mt-2 font-mono text-gray-100">05 <span className="text-xs text-gray-500">SHIPPED</span></div>
               <div className="absolute right-4 bottom-4 grid grid-cols-2 gap-1 w-5 h-5">
                 <span className="w-2 h-2 bg-[#b4fe15] rounded-sm"></span>
                 <span className="w-2 h-2 bg-[#b4fe15] rounded-sm"></span>
                 <span className="w-2 h-2 bg-[#b4fe15] rounded-sm"></span>
-                <span className="w-2 h-2 border border-gray-600 rounded-sm"></span>
+                <span className="w-2 h-2 bg-[#b4fe15] rounded-sm"></span>
               </div>
             </div>
             {/* LeetCode */}
@@ -193,7 +193,7 @@ function HeroSection() {
                     <span className="text-orange-400">5</span>
                   </div>
                   <div><span className="ml-8 lg:ml-16 mr-2 text-gray-400">{`);`}</span></div>
-                  <div><span className="ml-4 lg:ml-8 text-gray-400">{`};`}</span></div>
+                  <div><span className="ml-4 lg:ml-8 text-gray-400">{`}`}</span></div>
                   <div><span className="text-gray-400">{`};`}</span></div>
                 </code>
               </div>

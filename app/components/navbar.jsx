@@ -38,53 +38,46 @@ function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-6 text-sm font-mono text-gray-400">
-          <ul className="flex flex-row space-x-1" id="navbar-default">
+          <ul className="flex flex-row space-x-2 md:space-x-4" id="navbar-default">
             <li>
               <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#about">
-                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
-                  <span className="text-[#b4fe15] mr-1">01</span> ABOUT
+                <div className="text-[13px] md:text-sm text-gray-200 transition-all duration-300 hover:text-[#b4fe15] hover:scale-105 transform font-medium tracking-wider">
+                  <span className="text-[#b4fe15] mr-1 font-semibold">01</span> ABOUT
                 </div>
               </Link>
             </li>
             <li>
               <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#experience">
-                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
-                  <span className="text-[#b4fe15] mr-1">02</span> EXPERIENCE
+                <div className="text-[13px] md:text-sm text-gray-200 transition-all duration-300 hover:text-[#b4fe15] hover:scale-105 transform font-medium tracking-wider">
+                  <span className="text-[#b4fe15] mr-1 font-semibold">02</span> EXPERIENCE
                 </div>
               </Link>
             </li>
             <li>
               <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#skills">
-                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
-                  <span className="text-[#b4fe15] mr-1">03</span> SKILLS
+                <div className="text-[13px] md:text-sm text-gray-200 transition-all duration-300 hover:text-[#b4fe15] hover:scale-105 transform font-medium tracking-wider">
+                  <span className="text-[#b4fe15] mr-1 font-semibold">03</span> SKILLS
                 </div>
               </Link>
             </li>
             <li>
               <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#education">
-                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
-                  <span className="text-[#b4fe15] mr-1">04</span> EDUCATION
+                <div className="text-[13px] md:text-sm text-gray-200 transition-all duration-300 hover:text-[#b4fe15] hover:scale-105 transform font-medium tracking-wider">
+                  <span className="text-[#b4fe15] mr-1 font-semibold">04</span> EDUCATION
                 </div>
               </Link>
             </li>
             <li>
               <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#projects">
-                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
-                  <span className="text-[#b4fe15] mr-1">05</span> PROJECTS
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/blog">
-                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
-                  <span className="text-[#b4fe15] mr-1">06</span> BLOGS
+                <div className="text-[13px] md:text-sm text-gray-200 transition-all duration-300 hover:text-[#b4fe15] hover:scale-105 transform font-medium tracking-wider">
+                  <span className="text-[#b4fe15] mr-1 font-semibold">05</span> PROJECTS
                 </div>
               </Link>
             </li>
             <li>
               <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#contact">
-                <div className="text-xs text-white transition-colors duration-300 hover:text-[#b4fe15]">
-                  <span className="text-[#b4fe15] mr-1">07</span> CONTACT
+                <div className="text-[13px] md:text-sm text-gray-200 transition-all duration-300 hover:text-[#b4fe15] hover:scale-105 transform font-medium tracking-wider">
+                  <span className="text-[#b4fe15] mr-1 font-semibold">06</span> CONTACT
                 </div>
               </Link>
             </li>
