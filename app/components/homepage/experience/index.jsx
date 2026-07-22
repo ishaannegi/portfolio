@@ -22,13 +22,13 @@ function Experience() {
 
       <div className="flex justify-center my-5 lg:py-8">
         <div className="flex  items-center">
-          <span className="w-24 h-[2px] bg-[#121214]"></span>
-          <span className="bg-[#121214] w-fit p-2 px-5 text-xl rounded-md">
+          <span className="w-24 h-[1px] bg-[#27272a]"></span>
+          <span className="bg-[#09090b] border border-[#27272a] w-fit p-2 px-5 text-xl rounded-md">
             <GradientText colors={['#b4fe15', '#10b981', '#ffffff']}>
               Experiences
             </GradientText>
           </span>
-          <span className="w-24 h-[2px] bg-[#121214]"></span>
+          <span className="w-24 h-[1px] bg-[#27272a]"></span>
         </div>
       </div>
 

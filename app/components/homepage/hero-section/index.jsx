@@ -9,9 +9,12 @@ import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
 import Marquee from "react-fast-marquee";
+import SpotlightCard from "../../helper/spotlight-card";
 import GlowCard from "../../helper/glow-card";
-import Particles from "../../helper/particles";
+import Aurora from "../../helper/aurora";
 import BlurText from "../../helper/blur-text";
+import GradientText from "../../helper/gradient-text";
+import RotatingText from "../../helper/rotating-text";
 
 function HeroSection() {
   const [isRunning, setIsRunning] = useState(false);
@@ -28,54 +31,34 @@ function HeroSection() {
 
   return (
     <section className="relative flex flex-col items-center justify-between py-4 lg:py-12">
-      <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none opacity-20">
-        <Particles
-          particleCount={120}
-          particleColors={['#b4fe15', '#10b981', '#ffffff']}
-          particleSpread={8}
-          speed={0.15}
-          particleBaseSize={80}
-          sizeRandomness={0.6}
-        />
-      </div>
-      <Image
-        src="/hero.svg"
-        alt="Hero"
-        width={1572}
-        height={795}
-        className="absolute -top-[98px] -z-20 opacity-30"
-        priority
-      />
 
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
         <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
-          <div className="text-4xl font-light leading-10 text-white md:font-light lg:text-[3.2rem] lg:leading-[4rem] font-sans">
+          <div className="flex flex-col items-start gap-2 relative w-full">
+            {/* Soft localized name glow behind the text */}
+            <div className="absolute -left-24 top-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#b4fe15]/10 to-[#10b981]/5 rounded-full filter blur-[100px] pointer-events-none -z-10"></div>
             <BlurText
               text="Hello, This is"
-              delay={40}
+              delay={150}
               animateBy="words"
               direction="top"
-              className="inline-block text-white"
+              className="text-3xl md:text-4xl font-light text-white/95 font-sans"
             />
-            <br />
-            <span className="font-serif italic font-normal text-[#b4fe15] tracking-wide relative after:content-[''] after:absolute after:bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-[#b4fe15] after:opacity-20">
-              <BlurText
-                text={personalData.name}
-                delay={50}
-                animateBy="words"
-                direction="top"
-                className="inline-block text-[#b4fe15]"
-              />
-            </span>
-            <span className="text-gray-400 block text-lg font-mono mt-4 tracking-widest uppercase">
-              <BlurText
-                text={personalData.designation}
-                delay={30}
-                animateBy="words"
-                direction="bottom"
-                className="inline-block text-gray-400 text-lg font-mono"
-              />
-            </span>
+
+            <GradientText
+              colors={["#b4fe15", "#10b981", "#b4fe15", "#5eead4"]}
+              animationSpeed={4}
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter font-sans leading-[1.05]"
+            >
+              {personalData.name}
+            </GradientText>
+
+            <RotatingText
+              texts={["Backend SDE", "IoT Developer", "DSA Enthusiast"]}
+              mainClassName="text-base md:text-lg text-gray-400 font-semibold font-mono mt-2 tracking-widest uppercase"
+              staggerFrom="last"
+              rotationInterval={2500}
+            />
           </div>
 
           <div className="my-8 flex items-center gap-4">
@@ -120,13 +103,13 @@ function HeroSection() {
           {/* Metric / Stat Cards */}
           <div className="grid grid-cols-2 gap-4 mt-12 w-full">
             {/* CGPA */}
-            <div className="p-4 rounded-lg border border-[#27272a] bg-[#0c0d0e] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
+            <SpotlightCard className="p-4 rounded-lg border border-[#27272a] bg-[#09090b] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
               <div className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">CGPA</div>
               <div className="text-2xl font-bold mt-2 font-mono text-gray-100">8.38 <span className="text-xs text-gray-500">/ 10</span></div>
               <div className="absolute right-4 bottom-4 w-6 h-6 border border-[#b4fe15] rounded-full border-t-transparent animate-spin" style={{ animationDuration: '3s' }}></div>
-            </div>
+            </SpotlightCard>
             {/* Year */}
-            <div className="p-4 rounded-lg border border-[#27272a] bg-[#0c0d0e] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
+            <SpotlightCard className="p-4 rounded-lg border border-[#27272a] bg-[#09090b] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
               <div className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">YEAR</div>
               <div className="text-2xl font-bold mt-2 font-mono text-gray-100">4th <span className="text-xs text-gray-500">OF 4</span></div>
               <div className="absolute right-4 bottom-4 flex gap-1">
@@ -135,9 +118,9 @@ function HeroSection() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#b4fe15]"></span>
                 <span className="w-1.5 h-1.5 rounded-full bg-[#b4fe15]"></span>
               </div>
-            </div>
+            </SpotlightCard>
             {/* Projects */}
-            <div className="p-4 rounded-lg border border-[#27272a] bg-[#0c0d0e] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
+            <SpotlightCard className="p-4 rounded-lg border border-[#27272a] bg-[#09090b] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
               <div className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">PROJECTS</div>
               <div className="text-2xl font-bold mt-2 font-mono text-gray-100">05 <span className="text-xs text-gray-500">SHIPPED</span></div>
               <div className="absolute right-4 bottom-4 grid grid-cols-2 gap-1 w-5 h-5">
@@ -146,13 +129,13 @@ function HeroSection() {
                 <span className="w-2 h-2 bg-[#b4fe15] rounded-sm"></span>
                 <span className="w-2 h-2 bg-[#b4fe15] rounded-sm"></span>
               </div>
-            </div>
+            </SpotlightCard>
             {/* LeetCode */}
-            <div className="p-4 rounded-lg border border-[#27272a] bg-[#0c0d0e] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
+            <SpotlightCard className="p-4 rounded-lg border border-[#27272a] bg-[#09090b] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
               <div className="text-[10px] text-gray-400 font-mono tracking-widest uppercase">LEETCODE</div>
               <div className="text-2xl font-bold mt-2 font-mono text-gray-100">250+ <span className="text-xs text-gray-500">SOLVED</span></div>
               <div className="absolute right-4 bottom-4 w-6 h-6 border border-dashed border-[#b4fe15]/50 rounded-full flex items-center justify-center text-[10px] text-[#b4fe15] font-mono">★</div>
-            </div>
+            </SpotlightCard>
           </div>
         </div>
         <div className="order-1 lg:order-2 w-full">
@@ -268,7 +251,7 @@ function HeroSection() {
       </div>
 
       {/* Large Scrolling Categories Marquee Banner */}
-      <div className="w-full bg-[#121214] py-4 border-y border-[#27272a] my-8 overflow-hidden">
+      <div className="w-full bg-black py-4 border-y border-[#27272a]/70 my-8 overflow-hidden">
         <Marquee gradient={false} speed={50} play={true} direction="left">
           <span className="text-[#b4fe15] font-serif italic text-2xl mx-8 font-bold">Data Structures &amp; Algorithms</span>
           <span className="text-gray-600 text-2xl mx-4">✦</span>

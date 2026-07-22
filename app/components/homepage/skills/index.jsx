@@ -12,17 +12,17 @@ function Skills() {
 
       <div className="flex justify-center -translate-y-[1px]">
         <div className="w-3/4">
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full" />
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-[#b4fe15]/50 to-transparent  w-full" />
         </div>
       </div>
 
       <div className="flex justify-center my-5 lg:py-8">
         <div className="flex  items-center">
-          <span className="w-24 h-[2px] bg-[#121214]"></span>
-          <span className="bg-[#121214] w-fit text-white p-2 px-5 text-xl rounded-md">
+          <span className="w-24 h-[1px] bg-[#27272a]"></span>
+          <span className="bg-[#09090b] border border-[#27272a] w-fit text-white p-2 px-5 text-xl rounded-md">
             Skills
           </span>
-          <span className="w-24 h-[2px] bg-[#121214]"></span>
+          <span className="w-24 h-[1px] bg-[#27272a]"></span>
         </div>
       </div>
 
@@ -39,16 +39,16 @@ function Skills() {
           {skillsData.map((skill, id) => (
             <div className="w-36 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-lg group relative hover:scale-[1.15] cursor-pointer"
               key={id}>
-              <div className="h-full w-full rounded-lg border border-[#27272a] bg-[#0f0f11] shadow-none shadow-gray-50 group-hover:border-violet-500 transition-all duration-500">
+              <div className="h-full w-full rounded-lg border border-[#27272a] bg-[#09090b] shadow-none shadow-gray-50 group-hover:border-[#b4fe15] transition-all duration-500">
                 <div className="flex -translate-y-[1px] justify-center">
                   <div className="w-3/4">
-                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
+                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#b4fe15]/50 to-transparent" />
                   </div>
                 </div>
                 <div className="flex flex-col items-center justify-center gap-3 p-6">
                   <div className="h-8 sm:h-10">
                     <Image
-                      src={skillsImage(skill)?.src}
+                      src={skillsImage(skill)?.src || skillsImage(skill)}
                       alt={skill}
                       width={40}
                       height={40}

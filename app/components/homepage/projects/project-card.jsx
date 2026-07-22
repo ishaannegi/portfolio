@@ -8,10 +8,10 @@ import SpotlightCard from '../../helper/spotlight-card';
 function ProjectCard({ project }) {
 
   return (
-    <SpotlightCard className="from-[#080808] border-[#1b2c68a0] relative rounded-lg border bg-gradient-to-r to-[#0a0d37] w-full p-0">
+    <SpotlightCard className="from-[#09090b] border-[#27272a] relative rounded-lg border bg-gradient-to-r to-[#020202] w-full p-0">
       <div className="flex flex-row">
-        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
-        <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
+        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#b4fe15] to-[#10b981]"></div>
+        <div className="h-[1px] w-full bg-gradient-to-r from-[#10b981] to-transparent"></div>
       </div>
       <div className="px-4 lg:px-8 py-3 lg:py-5 relative">
         <div className="flex flex-row space-x-1 lg:space-x-2 absolute top-1/2 -translate-y-1/2">
@@ -28,10 +28,12 @@ function ProjectCard({ project }) {
             {project.tools.map((tool, idx) => {
               const imgData = skillsImage(tool);
               if (!imgData) return null;
+              const imageSrc = imgData.src || imgData;
+              if (!imageSrc) return null;
               return (
                 <div key={idx} className="w-6 h-6 relative flex items-center justify-center hover:scale-125 transition-transform duration-200" title={tool}>
                   <Image
-                    src={imgData.src}
+                    src={imageSrc}
                     alt={tool}
                     width={20}
                     height={20}
@@ -43,7 +45,7 @@ function ProjectCard({ project }) {
           </div>
         </div>
       </div>
-      <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
+      <div className="overflow-hidden border-t-[2px] border-[#27272a]/70 px-4 lg:px-8 py-4 lg:py-8">
         <code className="font-mono text-xs md:text-sm lg:text-base break-words">
           <div className="blink">
             <span className="mr-2 text-pink-500">const</span>
@@ -91,7 +93,7 @@ function ProjectCard({ project }) {
         </code>
         
         {(project.code || project.demo) && (
-          <div className="flex items-center gap-4 mt-4 pt-4 border-t border-indigo-900/40">
+          <div className="flex items-center gap-4 mt-4 pt-4 border-t border-[#27272a]/50">
             {project.code && (
               <a
                 href={project.code}

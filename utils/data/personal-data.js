@@ -8,7 +8,7 @@ export const personalData = {
   address: 'Noida, Uttar Pradesh, India',
   github: 'https://github.com/ishaannegi',
   facebook: '',
-  linkedIn: 'https://www.linkedin.com/in/ishaannegi',
+  linkedIn: 'https://www.linkedin.com/in/negiishaan',
   twitter: '',
   stackOverflow: '',
   leetcode: "https://leetcode.com/ishaannegi/",

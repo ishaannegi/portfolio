@@ -21,19 +21,19 @@ function Education() {
       />
       <div className="flex justify-center -translate-y-[1px]">
         <div className="w-3/4">
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full" />
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-[#b4fe15]/50 to-transparent  w-full" />
         </div>
       </div>
 
       <div className="flex justify-center my-5 lg:py-8">
         <div className="flex  items-center">
-          <span className="w-24 h-[2px] bg-[#121214]"></span>
-          <span className="bg-[#121214] w-fit p-2 px-5 text-xl rounded-md">
+          <span className="w-24 h-[1px] bg-[#27272a]"></span>
+          <span className="bg-[#09090b] border border-[#27272a] w-fit p-2 px-5 text-xl rounded-md">
             <GradientText colors={['#b4fe15', '#10b981', '#ffffff']}>
               Educations
             </GradientText>
           </span>
-          <span className="w-24 h-[2px] bg-[#121214]"></span>
+          <span className="w-24 h-[1px] bg-[#27272a]"></span>
         </div>
       </div>
 

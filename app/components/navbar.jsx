@@ -63,7 +63,7 @@ function Navbar() {
           </Link>
         </div>
 
-        <div className="hidden lg:flex items-center gap-6 text-sm font-mono text-gray-400">
+        <div className="hidden lg:flex items-center gap-6 text-sm font-sans text-gray-400">
           <ul className="flex flex-row space-x-2 md:space-x-4" id="navbar-default">
             <li>
               <Link className="block px-3 py-2 no-underline outline-none hover:no-underline" href="/#about">
