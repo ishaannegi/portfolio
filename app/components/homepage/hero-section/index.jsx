@@ -1,42 +1,26 @@
 "use client";
-import { useState } from 'react';
 import { personalData } from "@/utils/data/personal-data";
-import Image from "next/image";
 import Link from "next/link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { RiContactsFill } from "react-icons/ri";
 import { SiLeetcode } from "react-icons/si";
 import Marquee from "react-fast-marquee";
 import SpotlightCard from "../../helper/spotlight-card";
-import GlowCard from "../../helper/glow-card";
-import Aurora from "../../helper/aurora";
 import BlurText from "../../helper/blur-text";
 import GradientText from "../../helper/gradient-text";
 import RotatingText from "../../helper/rotating-text";
 
 function HeroSection() {
-  const [isRunning, setIsRunning] = useState(false);
-  const [runOutput, setRunOutput] = useState(null);
-
-  const runCode = () => {
-    setIsRunning(true);
-    setRunOutput("Executing...");
-    setTimeout(() => {
-      setIsRunning(false);
-      setRunOutput("true");
-    }, 800);
-  };
-
   return (
     <section className="relative flex flex-col items-center justify-between py-4 lg:py-12">
-
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
+        
+        {/* Left Side: Headline, Social Links, Buttons, and Stat Cards */}
         <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
           <div className="flex flex-col items-start gap-2 relative w-full">
             {/* Soft localized name glow behind the text */}
-            <div className="absolute -left-24 top-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#b4fe15]/10 to-[#10b981]/5 rounded-full filter blur-[100px] pointer-events-none -z-10"></div>
+            <div className="absolute -left-24 top-0 w-[400px] h-[400px] bg-gradient-to-tr from-[#b4fe15]/0.06 to-[#00f2fe]/0.03 rounded-full filter blur-[100px] pointer-events-none -z-10"></div>
             <BlurText
               text="Hello, This is"
               delay={150}
@@ -46,7 +30,7 @@ function HeroSection() {
             />
 
             <GradientText
-              colors={["#b4fe15", "#10b981", "#b4fe15", "#5eead4"]}
+              colors={["#b4fe15", "#00f2fe"]}
               animationSpeed={4}
               className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter font-sans leading-[1.05]"
             >
@@ -86,21 +70,21 @@ function HeroSection() {
           </div>
 
           <div className="flex items-center gap-3">
-            <Link href="#contact" className="bg-gradient-to-r to-pink-500 from-violet-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-violet-600 hover:scale-105 transform inline-block">
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#080808] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
+            <Link href="#contact" className="bg-gradient-to-r from-[#ff2a5f] to-[#7c3aed] p-[1px] rounded-full transition-all duration-300 hover:scale-105 transform inline-block">
+              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#080808] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-[#ffff] no-underline transition-all duration-200 ease-out md:font-semibold flex items-center gap-1 hover:gap-3 cursor-pointer">
                 <span>Contact me</span>
                 <RiContactsFill size={16} />
               </button>
             </Link>
 
-            <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-300 ease-out hover:text-white hover:no-underline hover:scale-105 transform md:font-semibold" role="button" target="_blank" href={personalData.resume}
+            <Link className="flex items-center gap-1 hover:gap-3 rounded-full bg-gradient-to-r from-[#ff2a5f] to-[#7c3aed] px-3 md:px-8 py-3 md:py-4 text-center text-xs md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-300 ease-out hover:text-white hover:no-underline hover:scale-105 transform md:font-semibold cursor-pointer" role="button" target="_blank" href={personalData.resume}
             >
               <span>Get Resume</span>
               <MdDownload size={16} />
             </Link>
           </div>
 
-          {/* Metric / Stat Cards */}
+          {/* Metric / Stat Cards (Restored in their original position) */}
           <div className="grid grid-cols-2 gap-4 mt-12 w-full">
             {/* CGPA */}
             <SpotlightCard className="p-4 rounded-lg border border-[#27272a] bg-[#09090b] flex flex-col justify-between h-28 relative overflow-hidden group hover:border-[#b4fe15] transition-all duration-300">
@@ -138,116 +122,58 @@ function HeroSection() {
             </SpotlightCard>
           </div>
         </div>
-        <div className="order-1 lg:order-2 w-full">
-          <GlowCard identifier="hero-coder">
-            <div className="px-4 lg:px-8 py-5">
-              <div className="flex flex-row items-center justify-between mb-4 border-b border-gray-800 pb-3">
-                <div className="flex flex-row space-x-2">
-                  <div className="h-3 w-3 rounded-full bg-red-400"></div>
-                  <div className="h-3 w-3 rounded-full bg-orange-400"></div>
-                  <div className="h-3 w-3 rounded-full bg-green-200"></div>
+
+        {/* Right Side: Status Panel */}
+        <div className="order-1 lg:order-2 w-full lg:pt-10">
+          <div className="rounded-xl border border-[#1F2A22] bg-[#111318] p-5 shadow-[0_0_15px_rgba(31,42,34,0.3)] font-mono text-xs md:text-sm relative overflow-hidden">
+            
+            {/* Header: Dots + Pulse Status Dot + Title */}
+            <div className="flex flex-row items-center justify-between mb-6 border-b border-[#1F2A22]/50 pb-3">
+              <div className="flex flex-row items-center gap-3">
+                {/* Traffic-light dots */}
+                <div className="flex flex-row space-x-1.5 mr-2">
+                  <div className="h-2.5 w-2.5 rounded-full bg-red-500/80"></div>
+                  <div className="h-2.5 w-2.5 rounded-full bg-yellow-500/80"></div>
+                  <div className="h-2.5 w-2.5 rounded-full bg-green-500/80"></div>
                 </div>
-                <button
-                  onClick={runCode}
-                  disabled={isRunning}
-                  className="flex items-center gap-1.5 px-3 py-1 text-[11px] font-mono font-semibold text-[#b4fe15] bg-[#b4fe15]/10 border border-[#b4fe15]/30 rounded hover:bg-[#b4fe15]/20 active:scale-95 disabled:opacity-50 disabled:scale-100 transition-all cursor-pointer"
-                >
-                  <span className="text-[10px]">▶</span> {isRunning ? "Running" : "Run"}
-                </button>
-              </div>
-              <div className="overflow-hidden pt-1">
-                <code className="font-mono text-xs md:text-sm lg:text-base">
-                  <div className="blink">
-                    <span className="mr-2 text-pink-500">const</span>
-                    <span className="mr-2 text-white">coder</span>
-                    <span className="mr-2 text-pink-500">=</span>
-                    <span className="text-gray-400">{'{'}</span>
-                  </div>
-                  <div>
-                    <span className="ml-4 lg:ml-8 mr-2 text-white">name:</span>
-                    <span className="text-gray-400">{`'`}</span>
-                    <span className="text-amber-300">Ishaan Negi</span>
-                    <span className="text-gray-400">{`',`}</span>
-                  </div>
-                  <div className="ml-4 lg:ml-8 mr-2">
-                    <span className=" text-white">skills:</span>
-                    <span className="text-gray-400">{`['`}</span>
-                    <span className="text-amber-300">Java</span>
-                    <span className="text-gray-400">{"', '"}</span>
-                    <span className="text-amber-300">Spring Boot</span>
-                    <span className="text-gray-400">{"', '"}</span>
-                    <span className="text-amber-300">Docker</span>
-                    <span className="text-gray-400">{"', '"}</span>
-                    <span className="text-amber-300">Kubernetes</span>
-                    <span className="text-gray-400">{"', '"}</span>
-                    <span className="text-amber-300">Jenkins</span>
-                    <span className="text-gray-400">{"', '"}</span>
-                    <span className="text-amber-300">Graphite</span>
-                    <span className="text-gray-400">{"', '"}</span>
-                    <span className="text-amber-300">Grafana</span>
-                    <span className="text-gray-400">{"', '"}</span>
-                    <span className="text-amber-300">Nagios</span>
-                    <span className="text-gray-400">{"'],"}</span>
-                  </div>
-                  <div>
-                    <span className="ml-4 lg:ml-8 mr-2 text-white">hardWorker:</span>
-                    <span className="text-orange-400">true</span>
-                    <span className="text-gray-400">,</span>
-                  </div>
-                  <div>
-                    <span className="ml-4 lg:ml-8 mr-2 text-white">quickLearner:</span>
-                    <span className="text-orange-400">true</span>
-                    <span className="text-gray-400">,</span>
-                  </div>
-                  <div>
-                    <span className="ml-4 lg:ml-8 mr-2 text-white">problemSolver:</span>
-                    <span className="text-orange-400">true</span>
-                    <span className="text-gray-400">,</span>
-                  </div>
-                  <div>
-                    <span className="ml-4 lg:ml-8 mr-2 text-green-400">hireable:</span>
-                    <span className="text-orange-400">function</span>
-                    <span className="text-gray-400">{'() {'}</span>
-                  </div>
-                  <div>
-                    <span className="ml-8 lg:ml-16 mr-2 text-orange-400">return</span>
-                    <span className="text-gray-400">{`(`}</span>
-                  </div>
-                  <div>
-                    <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                    <span className="mr-2 text-white">hardWorker</span>
-                    <span className="text-amber-300">&amp;&amp;</span>
-                  </div>
-                  <div>
-                    <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                    <span className="mr-2 text-white">problemSolver</span>
-                    <span className="text-amber-300">&amp;&amp;</span>
-                  </div>
-                  <div>
-                    <span className="ml-12 lg:ml-24 text-cyan-400">this.</span>
-                    <span className="mr-2 text-white">skills.length</span>
-                    <span className="mr-2 text-amber-300">&gt;=</span>
-                    <span className="text-orange-400">5</span>
-                  </div>
-                  <div><span className="ml-8 lg:ml-16 mr-2 text-gray-400">{`);`}</span></div>
-                  <div><span className="ml-4 lg:ml-8 text-gray-400">{`}`}</span></div>
-                  <div><span className="text-gray-400">{`};`}</span></div>
-                </code>
-                {runOutput !== null && (
-                  <div className="mt-4 pt-4 border-t border-gray-800 font-mono text-xs md:text-sm transition-all duration-300">
-                    <div className="text-gray-500">{`// console output`}</div>
-                    <div className="text-gray-400 flex items-center gap-1">
-                      <span className="text-[#b4fe15]">&gt;</span> coder.hireable()
-                    </div>
-                    <div className="text-[#b4fe15] font-bold pl-3 mt-1">
-                      {runOutput}
-                    </div>
-                  </div>
-                )}
+                {/* pulsing status dot */}
+                <span className="flex h-2 w-2 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#b4fe15] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#b4fe15]"></span>
+                </span>
+                <span className="text-gray-300 font-bold tracking-wider text-[10px] uppercase">
+                  SYSTEM STATUS
+                </span>
               </div>
             </div>
-          </GlowCard>
+
+            {/* Metrics List */}
+            <div className="space-y-3.5 opacity-100">
+              <div className="grid grid-cols-3 gap-2 border-b border-[#1F2A22]/30 pb-2">
+                <span className="text-gray-500 font-medium">role</span>
+                <span className="col-span-2 text-gray-200 font-semibold font-mono">backend sde · open to work</span>
+              </div>
+              <div className="grid grid-cols-3 gap-2 border-b border-[#1F2A22]/30 pb-2">
+                <span className="text-gray-500 font-medium">cgpa</span>
+                <span className="col-span-2 text-gray-200 font-semibold font-mono">8.38 / 10</span>
+              </div>
+              <div className="grid grid-cols-3 gap-2 border-b border-[#1F2A22]/30 pb-2">
+                <span className="text-gray-500 font-medium">year</span>
+                <span className="col-span-2 text-gray-200 font-semibold font-mono">4th of 4</span>
+              </div>
+              <div className="grid grid-cols-3 gap-2 border-b border-[#1F2A22]/30 pb-2">
+                <span className="text-gray-500 font-medium">projects</span>
+                <span className="col-span-2 text-gray-200 font-semibold font-mono">05 shipped</span>
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                <span className="text-gray-500 font-medium">leetcode</span>
+                <span className="col-span-2 text-gray-200 font-semibold font-mono">250+ solved</span>
+              </div>
+            </div>
+
+          </div>
         </div>
+
       </div>
 
       {/* Large Scrolling Categories Marquee Banner */}
@@ -265,6 +191,6 @@ function HeroSection() {
       </div>
     </section>
   );
-};
+}
 
 export default HeroSection;
