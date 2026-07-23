@@ -1,12 +1,17 @@
 @use "tailwindcss";
 
 @theme {
-  --color-pink-500: #b4fe15;
-  --color-pink-600: #a3ff1a;
-  --color-violet-500: #10b981;
-  --color-violet-600: #121214;
-  --color-violet-100: rgba(180, 254, 21, 0.1);
-  --color-indigo-900: #121214;
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-clean: var(--border-clean);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-dim: var(--accent-dim);
+  --color-success-green: var(--success-green);
+
+  --font-sans: var(--font-sans), sans-serif;
+  --font-mono: var(--font-mono), monospace;
 }
 
 html {
@@ -14,18 +19,19 @@ html {
 }
 
 :root {
-  --foreground-rgb: rgb(211, 216, 232);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-  }
+  --bg: #000000;
+  --surface: #09090b;
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --border-clean: #27272a;
+  --accent-blue: #b4fe15;
+  --accent-dim: rgba(180, 254, 21, 0.08);
+  --success-green: #10B981;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background-color: #000000;
+  color: var(--text-primary);
+  background-color: var(--bg);
 }
 
 #sticky-card-1 {

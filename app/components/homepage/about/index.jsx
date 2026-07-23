@@ -1,27 +1,23 @@
-import { personalData } from "@/utils/data/personal-data";
-import Image from "next/image";
-import codingAnimation from '../../../assets/lottie/coding.json';
-import AnimationLottie from "../../helper/animation-lottie";
-import GradientText from "../../helper/gradient-text";
+// AboutSection component
+
 
 
 function AboutSection() {
   return (
-    <div id="about" className="my-12 lg:my-16 relative">
-      <h2 className="uppercase text-start text-2xl lg:text-3xl py-8 font-bold tracking-wider text-zinc-500">
-        A BIT <span className="text-white">ABOUT ME</span>
-      </h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        <div className="order-2 lg:order-1">
-          <p className="text-gray-200 text-sm lg:text-lg leading-relaxed">
-            {personalData.description}
-          </p>
-        </div>
-        <div className="flex justify-center order-1 lg:order-2">
-          <div className="w-full max-w-md">
-            <AnimationLottie animationPath={codingAnimation} />
-          </div>
-        </div>
+    <div id="about" className="my-16 lg:my-32 mx-auto max-w-[680px]">
+      <div className="mb-8">
+        <span className="text-xs font-mono font-bold uppercase tracking-wider text-text-secondary">Biography</span>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary mt-1">
+          A bit <span className="text-accent-blue">about me</span>
+        </h2>
+      </div>
+      <div className="flex flex-col gap-6 text-text-secondary text-base sm:text-[1.0625rem] leading-relaxed font-sans">
+        <p>
+          I'm a Computer Science student at Vellore Institute of Technology, specializing in IoT, with a growing focus on DevOps, AI applications, and backend systems. I enjoy building things end-to-end — from designing machine learning CPU schedulers to deploying full-stack AI career platforms on Vercel.
+        </p>
+        <p>
+          I've solved 250+ problems on LeetCode, worked hands-on with AWS cloud fundamentals, and automated deployments with Docker, Kubernetes, and Jenkins. I care about writing clean, well-structured code and understanding systems deeply rather than just making them work.
+        </p>
       </div>
     </div>
   );

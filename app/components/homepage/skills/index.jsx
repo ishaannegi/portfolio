@@ -1,66 +1,43 @@
-// @flow strict
+"use client";
 
-import { skillsData } from "@/utils/data/skills";
-import { skillsImage } from "@/utils/skill-image";
-import Image from "next/image";
-import Marquee from "react-fast-marquee";
+const categorizedSkills = {
+  "Languages": ['Java', 'Python', 'C', 'C++', 'Javascript', 'Typescript', 'SQL', 'HTML', 'CSS'],
+  "Backend & Web": ['Spring Boot', 'React', 'Next JS', 'Node JS', 'Express', 'Tailwind'],
+  "DevOps & Systems": ['Docker', 'Kubernetes', 'Jenkins', 'Grafana', 'Graphite', 'Nagios', 'AWS', 'Git', 'Linux', 'Windows'],
+  "Databases & Core": ['PostgreSQL', 'MySQL', 'MongoDB', 'Data Structures & Algorithms']
+};
 
 function Skills() {
   return (
-    <div id="skills" className="relative z-50 border-t my-12 lg:my-24 border-[#27272a]">
-      <div className="w-[100px] h-[100px] bg-violet-100 rounded-full absolute top-6 left-[42%] translate-x-1/2 filter blur-3xl  opacity-20"></div>
-
-      <div className="flex justify-center -translate-y-[1px]">
-        <div className="w-3/4">
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-[#b4fe15]/50 to-transparent  w-full" />
-        </div>
+    <div id="skills" className="my-16 lg:my-32 border-t border-border-clean pt-16 mx-auto max-w-[1120px]">
+      <div className="mb-10">
+        <span className="text-xs font-mono font-bold uppercase tracking-wider text-text-secondary">Capability</span>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary mt-1">
+          Technical <span className="text-accent-blue">skills</span>
+        </h2>
       </div>
 
-      <h2 className="uppercase text-start text-2xl lg:text-3xl py-8 font-bold tracking-wider text-zinc-500">
-        TECHNICAL <span className="text-white">SKILLS</span>
-      </h2>
-
-      <div className="w-full my-12">
-        <Marquee
-          gradient={false}
-          speed={80}
-          pauseOnHover={true}
-          pauseOnClick={true}
-          delay={0}
-          play={true}
-          direction="left"
-        >
-          {skillsData.map((skill, id) => (
-            <div className="w-36 min-w-fit h-fit flex flex-col items-center justify-center transition-all duration-500 m-3 sm:m-5 rounded-lg group relative hover:scale-[1.15] cursor-pointer"
-              key={id}>
-              <div className="h-full w-full rounded-lg border border-[#27272a] bg-[#09090b] shadow-none shadow-gray-50 group-hover:border-[#b4fe15] transition-all duration-500">
-                <div className="flex -translate-y-[1px] justify-center">
-                  <div className="w-3/4">
-                    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-[#b4fe15]/50 to-transparent" />
-                  </div>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-3 p-6">
-                  <div className="h-8 sm:h-10">
-                    <Image
-                      src={skillsImage(skill)?.src || skillsImage(skill)}
-                      alt={skill}
-                      width={40}
-                      height={40}
-                      className="!h-full !w-auto rounded-lg"
-                      style={{ width: 'auto', height: 'auto' }}
-                    />
-                  </div>
-                  <p className="text-white text-sm sm:text-lg">
-                    {skill}
-                  </p>
-                </div>
-              </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+        {Object.entries(categorizedSkills).map(([category, skills]) => (
+          <div key={category} className="flex flex-col gap-3 py-4">
+            <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-text-secondary/70">
+              {category}
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {skills.map((skill, i) => (
+                <span 
+                  key={i} 
+                  className="text-xs font-mono px-3 py-1.5 bg-accent-dim text-accent-blue rounded-md font-semibold transition-all hover:bg-accent-blue hover:text-white cursor-default"
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
-          ))}
-        </Marquee>
+          </div>
+        ))}
       </div>
     </div>
   );
-};
+}
 
 export default Skills;

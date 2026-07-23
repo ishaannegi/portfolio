@@ -14,47 +14,51 @@ import GradientText from '../../helper/gradient-text';
 
 function ContactSection() {
   return (
-    <div id="contact" className="my-12 lg:my-16 relative mt-24 text-white">
-      <h2 className="uppercase text-start text-2xl lg:text-3xl py-8 font-bold tracking-wider text-zinc-500">
-        GET IN <span className="text-white">TOUCH</span>
-      </h2>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+    <div id="contact" className="my-16 lg:my-32 border-t border-border-clean pt-16 mx-auto max-w-[1120px]">
+      <div className="mb-10">
+        <span className="text-xs font-mono font-bold uppercase tracking-wider text-text-secondary">Connection</span>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-text-primary mt-1">
+          Get in <span className="text-accent-blue">touch</span>
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <ContactForm />
-        <div className="lg:w-3/4 ">
-          <div className="flex flex-col gap-5 lg:gap-9">
-            <p className="text-sm md:text-xl flex items-center gap-3">
+        <div className="lg:pl-8">
+          <div className="flex flex-col gap-6 lg:gap-8 text-text-secondary">
+            <p className="text-sm md:text-lg flex items-center gap-4">
               <MdAlternateEmail
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#b4fe15] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
+                className="bg-accent-dim text-accent-blue p-2.5 rounded-full hover:bg-accent-blue hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
+                size={40}
               />
-              <span>{personalData.email}</span>
+              <span className="font-medium text-text-primary">{personalData.email}</span>
             </p>
             {personalData.phone && (
-              <p className="text-sm md:text-xl flex items-center gap-3">
+              <p className="text-sm md:text-lg flex items-center gap-4">
                 <IoMdCall
-                  className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#b4fe15] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                  size={36}
+                  className="bg-accent-dim text-accent-blue p-2.5 rounded-full hover:bg-accent-blue hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
+                  size={40}
                 />
-                <span>
+                <span className="font-medium text-text-primary">
                   {personalData.phone}
                 </span>
               </p>
             )}
-            <p className="text-sm md:text-xl flex items-center gap-3">
+            <p className="text-sm md:text-lg flex items-center gap-4">
               <CiLocationOn
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#b4fe15] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
+                className="bg-accent-dim text-accent-blue p-2.5 rounded-full hover:bg-accent-blue hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
+                size={40}
               />
-              <span>
+              <span className="font-medium text-text-primary">
                 {personalData.address}
               </span>
             </p>
           </div>
-          <div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
+          <div className="mt-8 lg:mt-16 flex items-center gap-4">
             {personalData.github && (
               <Link target="_blank" href={personalData.github}>
                 <IoLogoGithub
-                  className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#b4fe15] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                  className="bg-accent-dim text-accent-blue p-3 rounded-full hover:bg-accent-blue hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
                   size={48}
                 />
               </Link>
@@ -62,7 +66,7 @@ function ContactSection() {
             {personalData.linkedIn && (
               <Link target="_blank" href={personalData.linkedIn}>
                 <BiLogoLinkedin
-                  className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#b4fe15] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                  className="bg-accent-dim text-accent-blue p-3 rounded-full hover:bg-accent-blue hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
                   size={48}
                 />
               </Link>
@@ -70,31 +74,7 @@ function ContactSection() {
             {personalData.leetcode && (
               <Link target="_blank" href={personalData.leetcode}>
                 <SiLeetcode
-                  className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#b4fe15] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                  size={48}
-                />
-              </Link>
-            )}
-            {personalData.twitter && (
-              <Link target="_blank" href={personalData.twitter}>
-                <FaXTwitter
-                  className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#b4fe15] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                  size={48}
-                />
-              </Link>
-            )}
-            {personalData.stackOverflow && (
-              <Link target="_blank" href={personalData.stackOverflow}>
-                <FaStackOverflow
-                  className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#b4fe15] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                  size={48}
-                />
-              </Link>
-            )}
-            {personalData.facebook && (
-              <Link target="_blank" href={personalData.facebook}>
-                <FaFacebook
-                  className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#b4fe15] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                  className="bg-accent-dim text-accent-blue p-3 rounded-full hover:bg-accent-blue hover:text-white hover:scale-110 transition-all duration-300 cursor-pointer"
                   size={48}
                 />
               </Link>
@@ -104,6 +84,6 @@ function ContactSection() {
       </div>
     </div>
   );
-};
+}
 
 export default ContactSection;

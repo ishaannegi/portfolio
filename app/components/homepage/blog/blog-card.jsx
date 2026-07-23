@@ -6,58 +6,49 @@ import { BsHeartFill } from 'react-icons/bs';
 import { FaCommentAlt } from 'react-icons/fa';
 
 function BlogCard({ blog, priority = false }) {
-
   return (
-    <div className="border border-[#1d293a] hover:border-[#464c6a] transition-all duration-500 bg-[#1b203e] rounded-lg relative group"
+    <div className="border border-border-clean hover:border-accent-blue/30 hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-300 bg-surface rounded-xl relative group overflow-hidden flex flex-col"
     >
-      <div className="h-44 lg:h-52 w-auto cursor-pointer overflow-hidden rounded-t-lg">
+      <div className="h-44 lg:h-52 w-auto cursor-pointer overflow-hidden">
         <Image
           src={blog?.cover_image}
           height={1080}
           width={1920}
-          className='h-full w-full group-hover:scale-110 transition-all duration-300'
+          className='h-full w-full group-hover:scale-105 transition-all duration-500 object-cover'
           alt=""
           priority={priority}
-          style={{ width: '100%', height: '100%' }}
         />
       </div>
-      <div className="p-2 sm:p-3 flex flex-col">
-        <div className="flex justify-between items-center text-[#b4fe15] text-sm">
+      <div className="p-4 sm:p-5 flex flex-col flex-1">
+        <div className="flex justify-between items-center text-text-secondary text-xs font-mono mb-2">
           <p>{timeConverter(blog.published_at)}</p>
           <div className="flex items-center gap-3">
             <p className="flex items-center gap-1">
-              <BsHeartFill />
+              <BsHeartFill size={10} className="text-red-500" />
               <span>{blog.public_reactions_count}</span>
             </p>
             {blog.comments_count > 0 &&
               <p className="flex items-center gap-1">
-                <FaCommentAlt />
+                <FaCommentAlt size={10} />
                 <span>{blog.comments_count}</span>
               </p>
             }
           </div>
         </div>
         <Link target='_blank' href={blog.url}>
-          <p className='my-2 lg:my-3 cursor-pointer text-lg text-white sm:text-xl font-medium hover:text-violet-500'>
+          <p className='mb-2 cursor-pointer text-lg text-text-primary font-bold hover:text-accent-blue leading-snug transition-colors line-clamp-2'>
             {blog.title}
           </p>
         </Link>
-        <p className='mb-2 text-sm text-[#b4fe15]'>
+        <p className='text-xs text-accent-blue font-mono font-semibold mb-3'>
           {`${blog.reading_time_minutes} Min Read`}
         </p>
-        <p className='text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-3'>
+        <p className='text-sm text-text-secondary line-clamp-3 leading-relaxed flex-1'>
           {blog.description}
         </p>
-        {/* <div className="">
-          <Link target='_blank' href={blog.url}>
-            <button className='bg-violet-500 text-white px-3 py-1.5 rounded-full text-xs'>
-              Read More
-            </button>
-          </Link>
-        </div> */}
       </div>
     </div>
   );
-};
+}
 
 export default BlogCard;
