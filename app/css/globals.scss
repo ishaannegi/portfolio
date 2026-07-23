@@ -10,8 +10,9 @@
   --color-accent-dim: var(--accent-dim);
   --color-success-green: var(--success-green);
 
-  --font-sans: var(--font-sans), sans-serif;
-  --font-mono: var(--font-mono), monospace;
+  --font-sans: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --font-serif: var(--font-instrument-serif), serif;
 }
 
 html {
@@ -21,7 +22,7 @@ html {
 :root {
   --bg: #000000;
   --surface: #09090b;
-  --text-primary: #ffffff;
+  --text-primary: #EDEAE2;
   --text-secondary: #a1a1aa;
   --border-clean: #27272a;
   --accent-blue: #b4fe15;
@@ -53,4 +54,10 @@ body {
 .sticky-card {
   // padding-top: calc(var(--index) * 2.5rem);
   top: calc(var(--index) * 4rem);
+}
+
+.font-serif-italic {
+  font-family: var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
 }
